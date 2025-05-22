@@ -1,0 +1,28 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileCreator {
+    public static void main(String[] args) {
+        try {
+            // Create a new file
+            File myFile = new File("sample.txt");
+            if (myFile.createNewFile()) {
+                System.out.println("File created: " + myFile.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+
+            // Write to the file
+            FileWriter writer = new FileWriter("sample.txt");
+            writer.write("Hello, this is a sample file!");
+            writer.close();
+            System.out.println("Successfully wrote to the file.");
+
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+}
+
